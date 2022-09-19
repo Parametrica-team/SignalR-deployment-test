@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function useConnection(){
   const initialConnection: HubConnection = new signalR.HubConnectionBuilder()
-    .withUrl("https://localhost:49153/hub")
+    .withUrl("https://localhost:5025/hub")
     .withAutomaticReconnect()
     .configureLogging(signalR.LogLevel.Information)
     .build()

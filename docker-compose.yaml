@@ -1,0 +1,37 @@
+services:
+############################## URBANBOT ################################
+
+  urbanbot-backend:
+    build:
+        context: ./signalR-backend
+    ports:
+       - "5024:80"
+       - "5025:443"
+    environment:
+        - UrbanbotDatabaseSettings:ConnectionString=${UrbanbotConnectionString}
+        - ASPNETCORE_ENVIRONMENT=Development
+        # - ASPNETCORE_URLS=https://+:443;http://+:80
+        # - ASPNETCORE_Kestrel__Certificates__Default__Password=fucker
+        # - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    # volumes:
+    #   - ~/.aspnet/https:/https:ro
+    networks:
+        - backend
+    restart : always
+
+
+  urbanbot-frontend:
+    build:
+        context: ./signalr-frontend
+        args:
+          - URL=https://urbanbot-backend/hub
+    ports:
+        - "5026:3000"    
+    networks:
+        - backend
+    restart : always
+
+
+################################## NETWORKS ##################################################
+networks:
+  backend:
