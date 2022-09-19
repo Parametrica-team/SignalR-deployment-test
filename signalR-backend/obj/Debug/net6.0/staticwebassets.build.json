@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "zliWgS8J8IDNNR2o2QVSPoS1LQV/kzjvn/8e9JPTTiI=",
+  "Source": "signalR-backend",
+  "BasePath": "_content/signalR-backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

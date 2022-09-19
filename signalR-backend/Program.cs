@@ -1,17 +1,36 @@
+using signalR_backend;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddSignalRCore();
+builder.Services.AddTransient<UrbanbotHub>();
+builder.Services.AddSignalR();
+
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:3000", "http://localhost:3001")
+                .AllowAnyHeader()
+                .WithMethods("GET", "POST")
+                .AllowCredentials();
+        });
+});
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
 app.UseHttpsRedirection();
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapHub<UrbanbotHub>("/hub");
-});
+app.UseRouting();
+
+app.UseCors();
+app.MapHub<UrbanbotHub>("/hub");
+//app.UseEndpoints(endpoints =>
+//{
+//    endpoints.MapHub<UrbanbotHub>("/hub");
+//});
 
 var summaries = new[]
 {
