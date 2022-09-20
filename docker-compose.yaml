@@ -8,13 +8,13 @@ services:
        - "5024:80"
        - "5025:443"
     environment:
-        - UrbanbotDatabaseSettings:ConnectionString=${UrbanbotConnectionString}
         - ASPNETCORE_ENVIRONMENT=Development
-        # - ASPNETCORE_URLS=https://+:443;http://+:80
-        # - ASPNETCORE_Kestrel__Certificates__Default__Password=fucker
-        # - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
-    # volumes:
-    #   - ~/.aspnet/https:/https:ro
+        - ASPNETCORE_URLS=https://+:443;http://+:80
+        - ASPNETCORE_HTTPS_PORT=5025
+        - ASPNETCORE_Kestrel__Certificates__Default__Password=fucker
+        - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/signalR-backend.pfx
+    volumes:
+      - .\https:/https:ro
     networks:
         - backend
     restart : always
