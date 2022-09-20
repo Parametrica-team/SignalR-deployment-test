@@ -15,6 +15,7 @@ export default function Home() {
   
   return (
     <div className={styles.container}>
+      <h1>frontpage</h1>
       <h1>{response}</h1>
     </div>
   )

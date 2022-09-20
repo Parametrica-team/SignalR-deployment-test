@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 
 export default function useConnection(){
   const initialConnection: HubConnection = new signalR.HubConnectionBuilder()
-    .withUrl("https://localhost:5025/hub")
-    //.withUrl("https://parametrica.work:5025/hub")
+    .withUrl("https://urbanbot.parametrica.work:5025/hub")
+    //.withUrl("https://parametrica.work:5026/hub")
     .withAutomaticReconnect()
     .configureLogging(signalR.LogLevel.Information)
     .build()
