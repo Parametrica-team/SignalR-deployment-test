@@ -11,7 +11,7 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(
         builder =>
         {
-            builder.WithOrigins("http://localhost:3000", "http://localhost:3001", "http://localhost:5026", "https://parametrica.work:5026")
+            builder.WithOrigins("http://localhost:3000", "http://localhost:3001", "http://localhost:5026", "https://urbanbot.parametrica.work:5026", "http://urbanbot.parametrica.work:5026", "https://signalr-frontend-only.vercel.app")
                 .AllowAnyHeader()
                 .WithMethods("GET", "POST")
                 .AllowCredentials();
