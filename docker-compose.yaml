@@ -12,9 +12,9 @@ services:
         - ASPNETCORE_URLS=https://+:443;http://+:80
         - ASPNETCORE_HTTPS_PORT=5025
         - ASPNETCORE_Kestrel__Certificates__Default__Password=fucker
-        - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/signalR-backend.pfx
+        - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/urbanbot.parametrica.work.pfx
     volumes:
-      - .\https:/https:ro
+      - C:\Users\Service\Desktop\Docker\certificates\urbanbot.parametrica.work:/https:ro
     networks:
         - backend
     restart : always
