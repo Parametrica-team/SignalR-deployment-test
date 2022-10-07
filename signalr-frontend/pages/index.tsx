@@ -7,12 +7,12 @@ export default function Home() {
   const [response, setResponse] = useState('')
   const [weather, setWeather] = useState('')
 
-  // let connection = useConnection();
-  // if (connection){
-  //   connection.invoke<string>("Echo", "fuck you!").then(r => {
-  //     setResponse(r);
-  //   })
-  // }
+  let connection = useConnection();
+  if (connection){
+    connection.invoke<string>("Echo", "fuck you!").then(r => {
+      setResponse(r);
+    })
+  }
 
   useEffect(()=>{
     const getWeather = async () => {
